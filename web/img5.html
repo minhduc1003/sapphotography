@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sap Photography</title>
+    <link rel="icon" href="../img/logo đấy/Sap den.png">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="watch-img-full-size">
+        <img class="img-full-size" src="../img/bao uyen/51260488652_9f4cde0764_o.jpg" alt="">
+        <div class="icon-close"><i class="fa-solid fa-xmark "></i></div>
+    </div>
+    <div class="watch-img">
+    <header>
+        <div class="container-fluid header">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col text-center ">
+                    <a href="../index.html" class="logo">
+                        <img src="../img/logo đấy/Sap den.png" alt="" class="logo-img">
+                    </a>
+                </div>
+                <div class="col">
+                    <ul class="header__menu">
+                        <a href="../index.html" class="header__menu-link">
+                            <li class="header__menu-item ">WORK</li>
+                        </a>
+                        <a href="../about.html" class="header__menu-link">
+                            <li class="header__menu-item">ABOUT</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+    </header>
+    <div class="container">
+        
+        <div class="row margin">
+            <div class="col col-style">
+                <img class="main__col-img" src="../img/NANG CHIEU/1.jpg" alt="">
+            </div>
+            <div class="col col-style">
+                <img class="main__col-img" src="../img/NANG CHIEU/2.jpg" alt="">
+            </div>
+            <div class="col col-style">
+                <img class="main__col-img" src="../img/NANG CHIEU/3.jpg" alt="">
+            </div>
+            <div class="col col-style">
+                <img class="main__col-img" src="../img/NANG CHIEU/4.jpg" alt="">
+            </div>
+            <div class="col col-style">
+                <img class="main__col-img" src="../img/NANG CHIEU/5.jpg" alt="">
+            </div>
+            <div class="col col-style">
+                <img class="main__col-img" src="../img/NANG CHIEU/6.jpg" alt="">
+            </div>
+            <div class="col col-style">
+                <img class="main__col-img" src="../img/NANG CHIEU/7.jpg" alt="">
+            </div>
+            <div class="col col-style">
+                <img class="main__col-img" src="../img/NANG CHIEU/8.jpg" alt="">
+            </div>
+
+        </div>
+        
+    </div>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        const getImgs = document.querySelectorAll('.main__col-img')
+const watchImg = document.querySelector('.watch-img')
+const watchImgFullSize = document.querySelector('.watch-img-full-size')
+
+
+
+
+watchImgFullSize.onclick = function(){
+        watchImg.style.display ='block'
+        watchImgFullSize.style.display= 'none'
+}
+for(let i=0 ;i<getImgs.length;i++){
+    let getImg = getImgs[i]
+    if(window.innerWidth <700){
+        
+        window.addEventListener('resize',function(){
+            
+            getImg.style.width =`${window.innerWidth /1.2}px`
+            getImg.style.height =`${window.innerWidth *1.2}px`
+        })
+    }
+    
+   getImg.onclick = function(){
+       render(i)
+        watchImg.style.display ='none'
+        watchImgFullSize.style.display= 'flex'
+   }
+}
+function render (id){
+    let html = `
+    <img class="img-full-size" src="../img/NANG CHIEU/${id+1}.jpg" alt="">
+    <div class="icon-close"><i class="fa-solid fa-xmark "></i></div>
+       `
+       let getParent = document.querySelector('.watch-img-full-size')
+       getParent.innerHTML = html
+       
+    
+}
+    </script>
+</body>
+</html>
